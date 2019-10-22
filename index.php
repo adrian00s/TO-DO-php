@@ -14,33 +14,26 @@
 
   <h1 class="title">TO-DO List PHP</h1>
 
-  <form action="" method="POST">
+  <form action="./Task.class.php" method="POST" id="taskForm">
     <div class="container">
       <input type="text" name="addTask">
-      <button type="submit">ADD</button>
+      <button type="submit" name="addButton">ADD</button>
     </div><!--end of container-->
-  </form>
+  </form> 
+
   <a href="" style="text-align: center; display:block; margin-top: 15px;">Retrieve task -></a>
+
   <table>
     <tr>
       <td style="text-align: center;">ID</td>
       <td style="text-align: center;">TASK</td>
       <td>ACTIONS</td>
     </tr>
-    <tr>
-      <td style="text-align: center;">1</td>
-      <td>Do homework</td>
-      <td style="text-align: center;">X</td>
-    </tr>
-    <tr>
-      <td style="text-align: center;">2</td>
-      <td>Make this project</td>
-      <td style="text-align: center;">X</td>
-    </tr>
   </table>
 
-
-
+  <script src="js/writeTask.js"></script>
+  <script src="js/removeTask.js"></script>
+      
   
 </body>
 </html>
