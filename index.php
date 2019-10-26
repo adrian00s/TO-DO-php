@@ -14,14 +14,20 @@
 
   <h1 class="title">TO-DO List PHP</h1>
 
-  <form action="./Task.class.php" method="POST" id="taskForm">
+  <form id="taskForm">
     <div class="container">
       <input type="text" name="addTask">
       <button type="submit" name="addButton">ADD</button>
     </div><!--end of container-->
   </form> 
 
-  <a href="" style="text-align: center; display:block; margin-top: 15px;">Retrieve task -></a>
+  <form action="./Retrieve.php" method="POST">
+    <div class="container">
+      <button class="retrieveTask" type="submit" style="text-align: center; margin: 0 auto;">Retrieve task -></button>
+      <input type="hidden" name="idArray" id="idArray">
+      <input type="hidden" name="taskArray" id="taskArray">
+    </div>
+  </form>
 
   <table>
     <tr>
@@ -36,7 +42,7 @@
 			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">
   </script>   
-  <script src="js/writeTask.js"></script>
-  
+  <script src="js/writeTask.js" type="module"></script>
+  <script src="js/tableToPhp.js" type="module"></script>
 </body>
 </html>

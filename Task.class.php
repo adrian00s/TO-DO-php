@@ -2,29 +2,34 @@
   namespace Task;
 
   class Task{
-    private static $id = 0;
-    private $task;
-    
-    public function __construct($task){
-      self::$id++;
+    private $ids;
+    private $tasks;
+
+    public function __construct($ids, $task){
+      $this->ids = $ids;
       $this->task = $task;
 
       # Write the task to the file
-      $this->writeTaskToFile($this->task);
+      $this->writeTaskToFile($this->ids, $this->task);
     }
 
-    private function writeTaskToFile($task){
+    private function writeTaskToFile($ids, $tasks){
       # Open the file
-      $openFile = fopen("./log/tasks.txt", "a+");
+      $openFile = fopen("./log/tasks.txt", "w+");
 
-      # Write to file
-      $writeToFile = fwrite($openFile, self::$id++.", $task\n");
+      # Array conversion
+      $idsArray = explode("]", $ids);
+      $tasksArray = explode("]", $tasks);
+
+      $combinedIdTasks = array_combine($idsArray, $tasksArray);
+      
+      # Format writing in the file
+      foreach ($combinedIdTasks as $id => $task){
+        fwrite($openFile, $id.",".$task."\n");
+      }
 
       # Close writing to file;
       fclose($openFile);
     }
-
   }
-  new Task($_POST["addTask"]);
-
 ?>
